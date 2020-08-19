@@ -1,42 +1,17 @@
 import React from 'react';
 import './App.css';
+import { Rating } from './Rating';
+import { AppTitle } from './AppTitle';
+import { Accordion } from './Accordion';
 
 function App() {
   return (
     <div className="App">
-      <Rating />
+      <AppTitle />
       <Accordion />
+      <Rating />
     </div>
   );
-}
-
-const Rating = () => {
-  return (
-    <>
-      <Star />
-    </>
-  )
-
-}
-const Star = () => {
-  return (
-    <>
-      <div>star</div>
-    </>
-  )
-}
-
-const Accordion = () => {
-  return (
-    <>
-      <h3>Menu</h3>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </>
-  )
 }
 
 export default App;

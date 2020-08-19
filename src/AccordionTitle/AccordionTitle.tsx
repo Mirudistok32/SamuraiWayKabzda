@@ -2,14 +2,20 @@ import React from 'react';
 
 type PropsType = {
   title: string
+  onClick?: () => void
 }
 
 export const AccordionTitle = (props: PropsType) => {
 
-  const { title } = props
+  const { title, onClick } = props
+
+  const onClickHandler = () => {
+    onClick && onClick()
+  }
+
   return (
     <>
-      <h3>{title}</h3>
+      <h3 onClick={onClickHandler}>{title}</h3>
     </>
   )
 }

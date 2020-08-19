@@ -4,16 +4,19 @@ import { AccordionBody } from '../AccordionBody/AccordionBody';
 
 type PropsType = {
   title: string
+  collapsed: boolean
 }
 
 export const Accordion = (props: PropsType) => {
-  
-  const { title } = props
+
+  const { title, collapsed } = props
 
   return (
     <>
       <AccordionTitle title={title} />
-      <AccordionBody />
+      {
+        !collapsed && <AccordionBody />
+      }
     </>
   )
 }

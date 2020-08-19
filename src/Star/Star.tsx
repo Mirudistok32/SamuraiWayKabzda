@@ -16,7 +16,7 @@ export const Star = (props: PropsType) => {
 
   return (
     <>
-      <span className={mainClass.join(' ')}>✪</span>
+      <span className={mainClass.join(' ')}>★</span>
     </>
   )
 }

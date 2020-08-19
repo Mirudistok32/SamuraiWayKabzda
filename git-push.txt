@@ -1,1 +1,3 @@
 git push https://github.com/Mirudistok32/SamuraiWayKabzda.git
+
+git pull https://github.com/Mirudistok32/SamuraiWayKabzda.git

@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Rating } from './Rating';
-import { AppTitle } from './AppTitle';
-import { Accordion } from './Accordion';
+import { Rating } from './Rating/Rating';
+import { AppTitle } from './AppTitle/AppTitle';
+import { Accordion } from './Accordion/Accordion';
 
 function App() {
   return (

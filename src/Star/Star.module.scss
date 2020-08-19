@@ -1,0 +1,13 @@
+.star {
+  font-size: 40px;
+  color: #2d2d2d;
+  margin: 0 1px;
+  cursor: pointer;
+  transition: all 0.23s ease-in-out;
+  &:hover {
+    color: tomato;
+  }
+  &__selected {
+    color: tomato;
+  }
+}

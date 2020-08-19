@@ -4,12 +4,16 @@ type PropsType = {
   title: string
 }
 
-export const AccordionTitle = (props: PropsType) => {
+export const PageTitle = (props: PropsType) => {
 
   const { title } = props
   return (
     <>
-      <h3>{title}</h3>
+      <h1>
+        {
+          title
+        }
+      </h1>
     </>
   )
 }

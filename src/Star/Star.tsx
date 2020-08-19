@@ -22,7 +22,7 @@ export const Star = (props: PropsType) => {
 
   return (
     <>
-      <span className={mainClass.join(' ')} onClick={onClick} >★</span>
+      <span className={mainClass.join(' ')} onClick={onClickHandler} >★</span>
     </>
   )
 }

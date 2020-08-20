@@ -1,22 +1,20 @@
-import React from 'react';
-import s from './OnOff.module.scss'
+import React, { useState } from 'react';
+import s from './UncontrolledOnOff.module.scss'
 
 type PropsType = {
-  value: boolean
-  onClick: () => void
 }
 
-export const OnOff = (props: PropsType) => {
+export const UncontrolledOnOff = (props: PropsType) => {
 
-  const { value,onClick } = props
+  const { } = props
 
-
+  const [active, setActive] = useState<boolean>(false)
 
   let activeClassnames = s.OnOff__btns
   let inactiveClassnames = s.OnOff__btns
   let indicatorClassnames = s.OnOff__indicator
 
-  if (value) {
+  if (active) {
     activeClassnames += ' ' + s.active
     indicatorClassnames += ' ' + s.active
 
@@ -25,15 +23,12 @@ export const OnOff = (props: PropsType) => {
     inactiveClassnames += ' ' + s.inactive
   }
 
-  const onClickHandler = () => {
-    onClick && onClick()
-  }
-
+  
   return (
     <>
       <div className={s.OnOff}>
-        <span className={activeClassnames} onClick={onClickHandler}>On</span>
-        <span className={inactiveClassnames} onClick={onClickHandler}>Off</span>
+        <span className={activeClassnames} onClick={() => setActive(true)}>On</span>
+        <span className={inactiveClassnames} onClick={() => setActive(false)}>Off</span>
         <span className={indicatorClassnames}></span>
       </div>
     </>

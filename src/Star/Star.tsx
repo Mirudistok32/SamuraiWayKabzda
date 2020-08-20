@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './Star.module.scss';
 
+export type ValueType = 0 | 1 | 2 | 3 | 4 | 5
+
 type PropsType = {
   selected: boolean
   onClick?: () => void
@@ -8,7 +10,7 @@ type PropsType = {
 
 export const Star = (props: PropsType) => {
 
-  const { selected, onClick } = props
+  const { selected, onClick} = props
 
   let mainClass = [s.star]
   if (selected) {
@@ -20,9 +22,10 @@ export const Star = (props: PropsType) => {
     onClick && onClick()
   }
 
+  
   return (
     <>
-      <span className={mainClass.join(' ')} onClick={onClickHandler} >★</span>
+      <span className={mainClass.join(' ')} onClick={onClickHandler}>★</span>
     </>
   )
 }

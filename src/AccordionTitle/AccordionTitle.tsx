@@ -1,4 +1,5 @@
 import React from 'react';
+import s from './AccordionTitle.module.scss'
 
 type PropsType = {
   title: string
@@ -13,9 +14,11 @@ export const AccordionTitle = (props: PropsType) => {
     onClick && onClick()
   }
 
+  const mainClass = [s.title]
+
   return (
     <>
-      <h3 onClick={onClickHandler}>{title}</h3>
+      <h3 className={mainClass.join(' ')} onClick={onClickHandler}>{title}</h3>
     </>
   )
 }

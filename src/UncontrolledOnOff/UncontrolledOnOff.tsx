@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import s from './UncontrolledOnOff.module.scss'
 
 type PropsType = {
+  defaultOn?: boolean
 }
 
 export const UncontrolledOnOff = (props: PropsType) => {
 
-  const { } = props
+  const { defaultOn } = props
 
-  const [active, setActive] = useState<boolean>(false)
+  const [active, setActive] = useState<boolean>(defaultOn ? defaultOn : false)
 
   let activeClassnames = s.OnOff__btns
   let inactiveClassnames = s.OnOff__btns
@@ -23,7 +24,7 @@ export const UncontrolledOnOff = (props: PropsType) => {
     inactiveClassnames += ' ' + s.inactive
   }
 
-  
+
   return (
     <>
       <div className={s.OnOff}>

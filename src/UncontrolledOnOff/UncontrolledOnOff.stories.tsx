@@ -11,4 +11,5 @@ export default {
   },
 } as Meta;
 
-export const Collapsed = () => <UncontrolledOnOff />;
+export const On = () => <UncontrolledOnOff defaultOn={true}/>;
+export const Off = () => <UncontrolledOnOff defaultOn={false}/>;

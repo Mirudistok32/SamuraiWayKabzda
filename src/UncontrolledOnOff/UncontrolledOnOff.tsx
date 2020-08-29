@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import s from './UncontrolledOnOff.module.scss'
 
 type PropsType = {
-  defaultOn?: boolean
+  defaultOn?: boolean,
+  onChange?: (on: boolean) => void
 }
 
 export const UncontrolledOnOff = (props: PropsType) => {
 
-  const { defaultOn } = props
+  const { defaultOn, onChange } = props
 
   const [active, setActive] = useState<boolean>(defaultOn ? defaultOn : false)
 
@@ -24,12 +25,21 @@ export const UncontrolledOnOff = (props: PropsType) => {
     inactiveClassnames += ' ' + s.inactive
   }
 
+  const onActiveHandler = () => {
+    setActive(true)
+    onChange && onChange(true)
+  }
+
+  const onUnactiveHandler = () => {
+    setActive(false)
+    onChange && onChange(false)
+  }
 
   return (
     <>
       <div className={s.OnOff}>
-        <span className={activeClassnames} onClick={() => setActive(true)}>On</span>
-        <span className={inactiveClassnames} onClick={() => setActive(false)}>Off</span>
+        <span className={activeClassnames} onClick={onActiveHandler}>On</span>
+        <span className={inactiveClassnames} onClick={onUnactiveHandler}>Off</span>
         <span className={indicatorClassnames}></span>
       </div>
     </>

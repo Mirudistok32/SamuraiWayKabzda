@@ -3,7 +3,7 @@ import s from './OnOff.module.scss'
 
 type PropsType = {
   value: boolean
-  onClick: () => void
+  onClick?: () => void
 }
 
 export const OnOff = (props: PropsType) => {

@@ -3,13 +3,12 @@ import s from './OnOff.module.scss'
 
 type PropsType = {
   active: boolean
-  onClick?: () => void
-  onChange?: (active: boolean) => void
+  onChangeActive?: (active: boolean) => void
 }
 
 export const OnOff = (props: PropsType) => {
 
-  const { active, onClick, onChange } = props
+  const { active, onChangeActive } = props
 
 
 
@@ -26,16 +25,19 @@ export const OnOff = (props: PropsType) => {
     inactiveClassnames += ' ' + s.inactive
   }
 
-  const onClickHandler = () => {
-    onClick && onClick()
-    onChange && onChange(!active)
+  const onActiveHandler = () => {
+    onChangeActive && onChangeActive(true)
+  }
+  
+  const onUnactiveHandler = () => {
+    onChangeActive && onChangeActive(false)
   }
 
   return (
     <>
       <div className={s.OnOff}>
-        <span className={activeClassnames} onClick={onClickHandler}>On</span>
-        <span className={inactiveClassnames} onClick={onClickHandler}>Off</span>
+        <span className={activeClassnames} onClick={onActiveHandler} >On</span>
+        <span className={inactiveClassnames} onClick={onUnactiveHandler}>Off</span>
         <span className={indicatorClassnames}></span>
       </div>
     </>

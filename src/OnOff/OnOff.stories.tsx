@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 // also exported from '@storybook/react' if you can deal with breaking changes in 6.1
 import { Meta } from '@storybook/react/types-6-0';
+import { action } from '@storybook/addon-actions'
 import { OnOff } from './OnOff';
 
 export default {
   title: 'My Components/OnOff',
   component: OnOff,
   argTypes: {
-
+    
   },
 } as Meta;
 
-export const On = () => <OnOff active />;
-export const Off = () => <OnOff active={false} />;
+export const On = () => <OnOff active onChangeActive={action('change')}/>;
+export const Off = () => <OnOff active={false} onChangeActive={action('change')}/>;
 export const ChangeOnOff = () => {
   const [active, setActive] = useState<boolean>(true)
-  return <OnOff active={active} onChange={setActive} />
+  return <OnOff active={active} onChangeActive={setActive} />
 }
 
 

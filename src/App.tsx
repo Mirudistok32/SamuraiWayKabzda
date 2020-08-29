@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <PageTitle title="What's up?" />
       {/* <UncontrolledOnOff /> */}
-      <OnOff value={active} onClick={() => setActive(!active)} />
+      <OnOff active={active} onClick={() => setActive(!active)} />
 
       <Accordion title={"Menu"} collapsed={collapsed} onClick={() => setCollapsed(!collapsed)} />
       {/* <UncontrolledAccordion title={"Не контролируемый"} /> */}

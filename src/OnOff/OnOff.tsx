@@ -2,13 +2,13 @@ import React from 'react';
 import s from './OnOff.module.scss'
 
 type PropsType = {
-  value: boolean
+  active: boolean
   onClick?: () => void
 }
 
 export const OnOff = (props: PropsType) => {
 
-  const { value,onClick } = props
+  const { active, onClick } = props
 
 
 
@@ -16,7 +16,7 @@ export const OnOff = (props: PropsType) => {
   let inactiveClassnames = s.OnOff__btns
   let indicatorClassnames = s.OnOff__indicator
 
-  if (value) {
+  if (active) {
     activeClassnames += ' ' + s.active
     indicatorClassnames += ' ' + s.active
 

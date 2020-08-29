@@ -4,11 +4,12 @@ import s from './OnOff.module.scss'
 type PropsType = {
   active: boolean
   onClick?: () => void
+  onChange?: (active: boolean) => void
 }
 
 export const OnOff = (props: PropsType) => {
 
-  const { active, onClick } = props
+  const { active, onClick, onChange } = props
 
 
 
@@ -27,6 +28,7 @@ export const OnOff = (props: PropsType) => {
 
   const onClickHandler = () => {
     onClick && onClick()
+    onChange && onChange(!active)
   }
 
   return (

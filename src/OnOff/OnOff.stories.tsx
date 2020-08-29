@@ -15,7 +15,7 @@ export const On = () => <OnOff active />;
 export const Off = () => <OnOff active={false} />;
 export const ChangeOnOff = () => {
   const [active, setActive] = useState<boolean>(true)
-  return <OnOff active={active} onClick={() => setActive(!active)} />
+  return <OnOff active={active} onChange={setActive} />
 }
 
 

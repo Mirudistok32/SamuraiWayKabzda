@@ -12,6 +12,7 @@ function App() {
 
   const [value, setValue] = useState<ValueType>(0)
   const [active, setActive] = useState<boolean>(false)
+  const [activeSelect, setActiveSelect] = useState<string>('react')
   const [collapsed, setCollapsed] = useState<boolean>(false)
 
   return (
@@ -51,7 +52,8 @@ function App() {
       />
 
       <Select
-        onChange={(a) => console.log('object')}
+        onChange={setActiveSelect}
+        value={activeSelect}
         items={[
           { title: 'react', id: v4() },
           { title: 'redux', id: v4() },

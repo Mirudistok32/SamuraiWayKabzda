@@ -8,9 +8,9 @@ type PropsType = {
   onClick?: () => void
 }
 
-export const Star = (props: PropsType) => {
 
-  const { selected, onClick} = props
+export const Star = React.memo((props: PropsType) => {
+  const { selected, onClick } = props
 
   let mainClass = [s.star]
   if (selected) {
@@ -22,10 +22,10 @@ export const Star = (props: PropsType) => {
     onClick && onClick()
   }
 
-  
+
   return (
     <>
       <span className={mainClass.join(' ')} onClick={onClickHandler}>★</span>
     </>
   )
-}
+})

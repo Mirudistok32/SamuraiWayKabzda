@@ -15,11 +15,7 @@
     padding: 5px 0px;
     display: flex;
     justify-content: center;
-    &:hover {
-      cursor: pointer;
-      background-color: #2d2d2d;
-      color: snow;
-    }
+    cursor: pointer;
   }
   &.active .select__items {
     display: block;
@@ -37,10 +33,14 @@
   box-shadow: 0 0 0 1px #000;
   background-color: lightblue;
   &:hover {
-      background-color: indianred;
-      color: snow;
+    background-color: indianred;
+    color: snow;
   }
 }
-.selected{
-    background-color: lightblue;
+.selected {
+  background-color: lightblue;
+}
+.hover {
+  background-color: #2d2d2d;
+  color: snow;
 }

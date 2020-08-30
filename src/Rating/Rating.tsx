@@ -9,7 +9,7 @@ export type RatingProps = {
   backgroundColor?: string
 }
 
-export const Rating = (props: RatingProps) => {
+export const Rating = React.memo((props: RatingProps) => {
 
   const { value, setValue, backgroundColor } = props
 
@@ -18,7 +18,7 @@ export const Rating = (props: RatingProps) => {
   }
 
   return (
-    <div className={s.rating} style={{backgroundColor}}>
+    <div className={s.rating} style={{ backgroundColor }}>
       <Star selected={value >= 1} onClick={() => onClickHandler(1)} />
       <Star selected={value >= 2} onClick={() => onClickHandler(2)} />
       <Star selected={value >= 3} onClick={() => onClickHandler(3)} />
@@ -26,4 +26,4 @@ export const Rating = (props: RatingProps) => {
       <Star selected={value >= 5} onClick={() => onClickHandler(5)} />
     </div>
   );
-}
+})

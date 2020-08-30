@@ -23,13 +23,20 @@ export const Select: React.FC<SelectPropsType> = (props) => {
     const selectedItem = items.find(i => i.title === value)
 
     const showItems = () => setActive(!active)
+    const onItemClick = (value: any) => {
+        onChange(value)
+        showItems()
+    }
 
     const itemsWatching = items.map(i => {
+        const itemClass = [s.select__item]
+        if(selectedItem?.title === i.title) itemClass.push(s.selected)
+
         return (
             <div
-                className={s.select__item}
+                className={itemClass.join(' ')}
                 key={i.id}
-                onClick={() => onChange(i.title)}
+                onClick={() => onItemClick(i.title)}
             >{i.title}
             </div>
         )
@@ -37,6 +44,7 @@ export const Select: React.FC<SelectPropsType> = (props) => {
 
     const mainClass = [s.select]
     if (active) mainClass.push(s.active)
+
 
     return (
         <>

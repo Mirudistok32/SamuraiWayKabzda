@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react'
+import React, { useState } from 'react'
 import s from './Select.module.scss'
 
 
@@ -9,7 +9,7 @@ export type ItemsSelectType = {
 
 type SelectPropsType = {
     value?: any
-    onChange?: (value: any) => void
+    onChange: (value: any) => void
     items: Array<ItemsSelectType>
 }
 
@@ -17,34 +17,42 @@ export const Select: React.FC<SelectPropsType> = (props) => {
 
     const { items, value, onChange } = props
 
+    const [active, setActive] = useState<boolean>(false)
+
+
+    const selectedItem = items.find(i => i.title === value)
+
+    const showItems = () => setActive(!active)
+
     const itemsWatching = items.map(i => {
         return (
-            <option
+            <div
+                className={s.select__item}
                 key={i.id}
-                value={i.title} >{i.title}
-            </option>
+                onClick={() => onChange(i.title)}
+            >{i.title}
+            </div>
         )
     })
 
-    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        console.log(e.currentTarget.value)
-        onChange && onChange(value)
-    }
-
     const mainClass = [s.select]
-
+    if (active) mainClass.push(s.active)
 
     return (
-        <select
-            className={mainClass.join(' ')}
-            onChange={onChangeHandler}
-            value={value}
-        >
-            <option>none</option>
-            {
-                itemsWatching
-            }
-        </select>
+        <>
+            <div className={mainClass.join(' ')}>
+                <span
+                    className={s.title}
+                    onClick={showItems}
+                >{selectedItem?.title ? selectedItem.title : "None"}
+                </span>
+                <div className={s.select__items}>
+                    {
+                        itemsWatching
+                    }
+                </div>
+            </div>
+        </>
     )
 }
 

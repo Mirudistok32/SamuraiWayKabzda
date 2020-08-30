@@ -51,6 +51,7 @@ function App() {
       />
 
       <Select
+        onChange={(a) => console.log('object')}
         items={[
           { title: 'react', id: v4() },
           { title: 'redux', id: v4() },

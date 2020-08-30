@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Select } from './Select';
 import { Meta } from '@storybook/react/types-6-0';
 import { v4 } from 'uuid';
+import { action } from '@storybook/addon-actions';
 
 
 export default {
@@ -14,6 +15,7 @@ export default {
 
 
 export const Base = () => <Select
+    onChange={action('ItemCliked')}
     items={[
         { title: 'react', id: v4() },
         { title: 'redux', id: v4() },
@@ -27,3 +29,27 @@ export const Base = () => <Select
         { title: 'hooks', id: v4() },
     ]}
 />;
+
+export const ChangeValue = () => {
+
+    const [value, setValue] = useState('storybook')
+
+    return (
+        <Select
+            onChange={setValue}
+            value={value}
+            items={[
+                { title: 'react', id: v4() },
+                { title: 'redux', id: v4() },
+                { title: 'storybook', id: v4() },
+                { title: 'thunk', id: v4() },
+                { title: 'rest api', id: v4() },
+                { title: 'css-modules', id: v4() },
+                { title: 'typescript', id: v4() },
+                { title: 'formik', id: v4() },
+                { title: 'pure function', id: v4() },
+                { title: 'hooks', id: v4() },
+            ]}
+        />
+    )
+}

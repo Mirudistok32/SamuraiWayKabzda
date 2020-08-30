@@ -1,15 +1,26 @@
 import React from 'react';
+import { v4 } from 'uuid';
 
+type PropsType = {
+  items: Array<string>
+}
 
-export const AccordionBody = () => {
+export const AccordionBody: React.FC<PropsType> = (props) => {
+
+  const { items } = props
+
+  const itemsWatching = items.map(i => {
+    return (
+      <li key={v4()}>i</li>
+    )
+  })
+
   return (
-    <>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
-    </>
+    <ul>
+      {
+        itemsWatching
+      }
+    </ul>
   )
 }
 

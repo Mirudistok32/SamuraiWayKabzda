@@ -6,11 +6,12 @@ type PropsType = {
   title: string
   collapsed: boolean
   onClick?: () => void
+  items: Array<string>
 }
 
 export const Accordion = (props: PropsType) => {
 
-  const { title, collapsed, onClick } = props
+  const { title, collapsed, onClick, items } = props
 
   const onClickHandler = () => {
     onClick && onClick()
@@ -20,7 +21,7 @@ export const Accordion = (props: PropsType) => {
     <>
       <AccordionTitle title={title} onClick={onClickHandler} />
       {
-        !collapsed && <AccordionBody />
+        !collapsed && <AccordionBody items={items} />
       }
     </>
   )

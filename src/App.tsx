@@ -18,7 +18,7 @@ function App() {
       {/* <UncontrolledOnOff /> */}
       <OnOff active={active} onChangeActive={setActive}/>
 
-      <Accordion title={"Menu"} collapsed={collapsed} onClick={() => setCollapsed(!collapsed)} />
+      <Accordion title={"Menu"} collapsed={collapsed} onClick={() => setCollapsed(!collapsed)} items={[]}/>
       {/* <UncontrolledAccordion title={"Не контролируемый"} /> */}
 
 

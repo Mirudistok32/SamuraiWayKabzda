@@ -8,15 +8,31 @@ export default {
   title: 'My Components/Accordion',
   component: Accordion,
   argTypes: {
-    
+
   },
 } as Meta;
 
-export const Collapsed = () => <Accordion collapsed title={'Collapsed'} onClick={action('uncollapsed')}/>;
-export const Uncollapsed = () => <Accordion collapsed={false} title={'Uncollapsed'} onClick={action('collapsed')}/>;
+export const Collapsed = () => <Accordion
+  collapsed
+  title={'Collapsed'} onClick={action('uncollapsed')}
+  items={[]}
+/>;
+
+export const Uncollapsed = () => <Accordion
+  collapsed={false}
+  title={'Uncollapsed'}
+  onClick={action('collapsed')}
+  items={['react', 'redux', 'storybook', 'thunk', 'rest api', 'css-modules', 'typescript', 'formik', 'pure function', 'hooks']}
+/>;
+
 export const Toggle = () => {
   const [collapsed, setCollapsed] = useState<boolean>(false)
-  return <Accordion collapsed={collapsed} title={'Toggle'} onClick={() => setCollapsed(!collapsed)}/>
+  return <Accordion
+    collapsed={collapsed}
+    title={'Toggle'}
+    onClick={() => setCollapsed(!collapsed)}
+    items={['react', 'redux', 'storybook', 'thunk', 'rest api', 'css-modules', 'typescript', 'formik', 'pure function', 'hooks']}
+  />
 }
 
 

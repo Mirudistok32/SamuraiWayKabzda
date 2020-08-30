@@ -29,7 +29,18 @@ function App() {
         title={"Menu"}
         collapsed={collapsed}
         onChange={() => setCollapsed(!collapsed)}
-        items={[]}
+        items={[
+          { title: 'react', value: v4() },
+          { title: 'redux', value: v4() },
+          { title: 'storybook', value: v4() },
+          { title: 'thunk', value: v4() },
+          { title: 'rest api', value: v4() },
+          { title: 'css-modules', value: v4() },
+          { title: 'typescript', value: v4() },
+          { title: 'formik', value: v4() },
+          { title: 'pure function', value: v4() },
+          { title: 'hooks', value: v4() },
+        ]}
         onClick={(a = 4) => console.log(a)}
       />
 
@@ -52,7 +63,6 @@ function App() {
           { title: 'pure function', id: v4() },
           { title: 'hooks', id: v4() },
         ]}
-
       />
     </div>
   );

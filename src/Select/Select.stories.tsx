@@ -13,7 +13,7 @@ export default {
 } as Meta;
 
 
-export const SelectNormal = () => <Select
+export const Base = () => <Select
     items={[
         { title: 'react', id: v4() },
         { title: 'redux', id: v4() },

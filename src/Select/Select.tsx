@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
+import s from './Select.module.scss'
+
 
 export type ItemsSelectType = {
     title: string,
@@ -24,12 +26,20 @@ export const Select: React.FC<SelectPropsType> = (props) => {
         )
     })
 
-    const onChangeHandler = () => {
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        console.log(e.currentTarget.value)
         onChange && onChange(value)
     }
 
+    const mainClass = [s.select]
+
+
     return (
-        <select onChange={onChangeHandler}>
+        <select
+            className={mainClass.join(' ')}
+            onChange={onChangeHandler}
+            value={value}
+        >
             <option>none</option>
             {
                 itemsWatching

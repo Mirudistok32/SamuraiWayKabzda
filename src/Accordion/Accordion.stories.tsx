@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Meta } from '@storybook/react/types-6-0';
 import { action } from '@storybook/addon-actions'
 import { Accordion } from './Accordion';
+import { v4 } from 'uuid';
 
 export default {
   title: 'My Components/Accordion',
@@ -12,17 +13,33 @@ export default {
   },
 } as Meta;
 
+// ['react', 'redux', 'storybook', 'thunk', 'rest api', 'css-modules', 'typescript', 'formik', 'pure function', 'hooks']
+
 export const Collapsed = () => <Accordion
   collapsed
   title={'Collapsed'} onClick={action('uncollapsed')}
   items={[]}
+  
 />;
 
 export const Uncollapsed = () => <Accordion
   collapsed={false}
   title={'Uncollapsed'}
   onClick={action('collapsed')}
-  items={['react', 'redux', 'storybook', 'thunk', 'rest api', 'css-modules', 'typescript', 'formik', 'pure function', 'hooks']}
+  onChange={action('collapsed')}
+  items={[
+    { title: 'react', value: v4() },
+    { title: 'redux', value: v4() },
+    { title: 'storybook', value: v4() },
+    { title: 'thunk', value: v4() },
+    { title: 'rest api', value: v4() },
+    { title: 'css-modules', value: v4() },
+    { title: 'typescript', value: v4() },
+    { title: 'formik', value: v4() },
+    { title: 'pure function', value: v4() },
+    { title: 'hooks', value: v4() },
+  ]}
+
 />;
 
 export const Toggle = () => {
@@ -31,7 +48,18 @@ export const Toggle = () => {
     collapsed={collapsed}
     title={'Toggle'}
     onClick={() => setCollapsed(!collapsed)}
-    items={['react', 'redux', 'storybook', 'thunk', 'rest api', 'css-modules', 'typescript', 'formik', 'pure function', 'hooks']}
+    items={[
+      { title: 'react', value: v4() },
+      { title: 'redux', value: v4() },
+      { title: 'storybook', value: v4() },
+      { title: 'thunk', value: v4() },
+      { title: 'rest api', value: v4() },
+      { title: 'css-modules', value: v4() },
+      { title: 'typescript', value: v4() },
+      { title: 'formik', value: v4() },
+      { title: 'pure function', value: v4() },
+      { title: 'hooks', value: v4() },
+    ]}
   />
 }
 

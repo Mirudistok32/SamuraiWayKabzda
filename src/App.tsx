@@ -14,16 +14,28 @@ function App() {
 
   return (
     <div className="App">
-      <PageTitle title="What's up?" />
-      {/* <UncontrolledOnOff /> */}
-      <OnOff active={active} onChangeActive={setActive}/>
+      <PageTitle
+        title="What's up?"
+      />
 
-      <Accordion title={"Menu"} collapsed={collapsed} onClick={() => setCollapsed(!collapsed)} items={[]}/>
-      {/* <UncontrolledAccordion title={"Не контролируемый"} /> */}
+      <OnOff
+        active={active}
+        onChangeActive={setActive}
+      />
+
+      <Accordion
+        title={"Menu"}
+        collapsed={collapsed}
+        onChange={() => setCollapsed(!collapsed)}
+        items={[]}
+        onClick={(a = 4) => console.log(a)}
+      />
 
 
-      <Rating value={value} setValue={setValue} />
-      {/* <UncontrolledRating /> */}
+      <Rating
+        value={value}
+        setValue={setValue}
+      />
     </div>
   );
 }

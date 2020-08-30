@@ -2,26 +2,32 @@ import React from 'react';
 import { AccordionTitle } from '../AccordionTitle/AccordionTitle';
 import { AccordionBody } from '../AccordionBody/AccordionBody';
 
+export interface IItemType {
+  title: string,
+  value: any
+}
+
 type PropsType = {
   title: string
   collapsed: boolean
-  onClick?: () => void
-  items: Array<string>
+  items: Array<IItemType>
+  onChange?: () => void
+  onClick: (value: any) => void
 }
 
 export const Accordion = (props: PropsType) => {
 
-  const { title, collapsed, onClick, items } = props
+  const { title, collapsed, onClick, onChange, items } = props
 
   const onClickHandler = () => {
-    onClick && onClick()
+    onChange && onChange()
   }
 
   return (
     <>
       <AccordionTitle title={title} onClick={onClickHandler} />
       {
-        !collapsed && <AccordionBody items={items} />
+        !collapsed && <AccordionBody items={items} onClick={onClick} />
       }
     </>
   )

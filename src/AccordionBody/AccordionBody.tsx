@@ -1,17 +1,22 @@
 import React from 'react';
 import { v4 } from 'uuid';
+import { IItemType } from '../Accordion/Accordion';
 
 type PropsType = {
-  items: Array<string>
+  items: Array<IItemType>
+  onClick: (value: any) => void
 }
 
 export const AccordionBody: React.FC<PropsType> = (props) => {
 
-  const { items } = props
+  const { items, onClick } = props
 
   const itemsWatching = items.map(i => {
     return (
-      <li key={v4()}>i</li>
+      <li
+        key={v4()}
+        onClick={() => onClick(i.value)}
+      >{i.title}</li>
     )
   })
 

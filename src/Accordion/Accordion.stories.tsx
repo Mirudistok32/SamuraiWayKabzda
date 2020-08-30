@@ -17,7 +17,9 @@ export default {
 
 export const Collapsed = () => <Accordion
   collapsed
-  title={'Collapsed'} onClick={action('uncollapsed')}
+  title={'Collapsed'} 
+  onClick={action('ClickItem')}
+  onChange={action('uncollapsed')}
   items={[]}
   
 />;
@@ -25,7 +27,7 @@ export const Collapsed = () => <Accordion
 export const Uncollapsed = () => <Accordion
   collapsed={false}
   title={'Uncollapsed'}
-  onClick={action('collapsed')}
+  onClick={action('ClickItem')}
   onChange={action('collapsed')}
   items={[
     { title: 'react', value: v4() },

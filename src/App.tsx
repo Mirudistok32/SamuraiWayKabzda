@@ -5,6 +5,8 @@ import { PageTitle } from './PageTitle/AppTitle';
 import { Accordion } from './Accordion/Accordion';
 import { ValueType } from './Star/Star';
 import { OnOff } from './OnOff/OnOff';
+import { Select } from './Select/Select';
+import { v4 } from 'uuid';
 
 function App() {
 
@@ -35,6 +37,22 @@ function App() {
       <Rating
         value={value}
         setValue={setValue}
+      />
+
+      <Select
+        items={[
+          { title: 'react', id: v4() },
+          { title: 'redux', id: v4() },
+          { title: 'storybook', id: v4() },
+          { title: 'thunk', id: v4() },
+          { title: 'rest api', id: v4() },
+          { title: 'css-modules', id: v4() },
+          { title: 'typescript', id: v4() },
+          { title: 'formik', id: v4() },
+          { title: 'pure function', id: v4() },
+          { title: 'hooks', id: v4() },
+        ]}
+
       />
     </div>
   );

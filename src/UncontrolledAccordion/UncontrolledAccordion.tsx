@@ -16,7 +16,7 @@ export const UncontrolledAccordion = (props: PropsType) => {
     <>
       <AccordionTitle title={title} onClick={() => setCollapsed(!collapsed)} />
       {
-        !collapsed && <AccordionBody items={[]}/>
+        !collapsed && <AccordionBody items={[]} onClick={(a = 8) => console.log('UncontrolledAccordion')} />
       }
     </>
   )

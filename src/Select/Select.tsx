@@ -6,12 +6,14 @@ export type ItemsSelectType = {
 }
 
 type SelectPropsType = {
+    value?: any
+    onChange?: (value: any) => void
     items: Array<ItemsSelectType>
 }
 
 export const Select: React.FC<SelectPropsType> = (props) => {
 
-    const { items } = props
+    const { items, value, onChange } = props
 
     const itemsWatching = items.map(i => {
         return (
@@ -22,8 +24,12 @@ export const Select: React.FC<SelectPropsType> = (props) => {
         )
     })
 
+    const onChangeHandler = () => {
+        onChange && onChange(value)
+    }
+
     return (
-        <select>
+        <select onChange={onChangeHandler}>
             <option>none</option>
             {
                 itemsWatching

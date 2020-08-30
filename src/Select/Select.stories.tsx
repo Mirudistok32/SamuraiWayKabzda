@@ -1,6 +1,7 @@
 import React from 'react'
 import { Select } from './Select';
 import { Meta } from '@storybook/react/types-6-0';
+import { v4 } from 'uuid';
 
 
 export default {
@@ -12,3 +13,17 @@ export default {
 } as Meta;
 
 
+export const SelectNormal = () => <Select
+    items={[
+        { title: 'react', id: v4() },
+        { title: 'redux', id: v4() },
+        { title: 'storybook', id: v4() },
+        { title: 'thunk', id: v4() },
+        { title: 'rest api', id: v4() },
+        { title: 'css-modules', id: v4() },
+        { title: 'typescript', id: v4() },
+        { title: 'formik', id: v4() },
+        { title: 'pure function', id: v4() },
+        { title: 'hooks', id: v4() },
+    ]}
+/>;

@@ -6,7 +6,7 @@ type PropsType = {
   onClick?: () => void
 }
 
-export const AccordionTitle = (props: PropsType) => {
+export const AccordionTitle =  React.memo((props: PropsType) => {
 
   const { title, onClick } = props
 
@@ -21,5 +21,5 @@ export const AccordionTitle = (props: PropsType) => {
       <h3 className={mainClass.join(' ')} onClick={onClickHandler}>{title}</h3>
     </>
   )
-}
+})
 

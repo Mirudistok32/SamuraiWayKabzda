@@ -4,7 +4,7 @@ type PropsType = {
   title: string
 }
 
-export const PageTitle = (props: PropsType) => {
+export const PageTitle =  React.memo((props: PropsType) => {
 
   const { title } = props
   return (
@@ -16,5 +16,5 @@ export const PageTitle = (props: PropsType) => {
       </h1>
     </>
   )
-}
+})
 

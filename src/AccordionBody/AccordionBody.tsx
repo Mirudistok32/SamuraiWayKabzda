@@ -7,7 +7,7 @@ type PropsType = {
   onClick: (value: any) => void
 }
 
-export const AccordionBody: React.FC<PropsType> = (props) => {
+export const AccordionBody: React.FC<PropsType> =  React.memo((props) => {
 
   const { items, onClick } = props
 
@@ -27,5 +27,5 @@ export const AccordionBody: React.FC<PropsType> = (props) => {
       }
     </ul>
   )
-}
+})
 

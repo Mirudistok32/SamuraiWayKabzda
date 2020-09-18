@@ -6,7 +6,7 @@ type PropsType = {
   onChangeActive?: (active: boolean) => void
 }
 
-export const OnOff = (props: PropsType) => {
+export const OnOff =  React.memo((props: PropsType) => {
 
   const { active, onChangeActive } = props
 
@@ -42,5 +42,5 @@ export const OnOff = (props: PropsType) => {
       </div>
     </>
   )
-}
+})
 

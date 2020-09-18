@@ -6,7 +6,7 @@ type PropsType = {
   onChange?: (value: ValueType) => void
 }
 
-export const UncontrolledRating = (props: PropsType) => {
+export const UncontrolledRating =  React.memo((props: PropsType) => {
 
   const { defaultValue, onChange } = props
   const [value, setValue] = useState<ValueType>(defaultValue ? defaultValue : 0)
@@ -25,4 +25,4 @@ export const UncontrolledRating = (props: PropsType) => {
       <Star selected={value >= 5} onClick={() => onClickHandler(5)} />
     </div>
   );
-}
+})

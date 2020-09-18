@@ -8,7 +8,7 @@ type PropsType = {
   title: string
 }
 
-export const UncontrolledAccordion = (props: PropsType) => {
+export const UncontrolledAccordion =  React.memo((props: PropsType) => {
 
   const { title } = props
 
@@ -35,5 +35,5 @@ export const UncontrolledAccordion = (props: PropsType) => {
       }
     </>
   )
-}
+})
 

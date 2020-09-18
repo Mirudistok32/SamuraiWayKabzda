@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react/types-6-0';
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 export default {
     title: 'React.memo memo',
@@ -19,7 +19,7 @@ const Users = React.memo((props: { users: Array<string> }) => {
     return (<div>{props.users.map((u, i) => (<div key={u + i}>{u}</div>))}</div>)
 })
 
-export const Example1 = () => {
+export const ReactMemoExample = () => {
     console.log('Example1');
 
     const [counter, setCounter] = useState(0)
@@ -28,35 +28,65 @@ export const Example1 = () => {
 
     return <>
         <button onClick={() => setCounter(counter + 1)}>+</button>
-        <button onClick={() => setUsers([...users, `Newusers${users.length+1}`])}>add user</button>
+        <button onClick={() => setUsers([...users, `Newusers${users.length + 1}`])}>add user</button>
         <NewMessagesCounter count={counter} />
         <Users users={users} />
     </>
 }
 
+export const UseMemoExample = () => {
 
-// const Template: Story<RatingProps> = (args) => <Rating {...args} />;
-// export const EmptyRating = Template.bind({});
-// EmptyRating.args = {
-//   value: 0
-// }
-// export const Rating1 = Template.bind({})
-// Rating1.args = {
-//   value: 1
-// }
-// export const Rating2 = Template.bind({})
-// Rating2.args = {
-//   value: 2
-// }
-// export const Rating3 = Template.bind({})
-// Rating3.args = {
-//   value: 3
-// }
-// export const Rating4 = Template.bind({})
-// Rating4.args = {
-//   value: 4
-// }
-// export const Rating5 = Template.bind({})
-// Rating5.args = {
-//   value: 5
-// }
+    const [a, setA] = useState(0)
+    const [b, setB] = useState(0)
+
+
+    let resultA = 1;
+    let resultB = 1;
+
+    resultA = useMemo(() => {
+        let tempValue = 1;
+        for (let i = 1; i <= a; i++) {
+            let fake = 0
+            while (fake < 10000000) {
+                fake++
+                const fakeValue = Math.random()
+            }
+            tempValue *= i
+        }
+        return tempValue
+    }, [a])
+
+
+
+    for (let i = 1; i <= b; i++) {
+        resultB *= i
+    }
+
+    return <>
+        <input type="text" value={a} onChange={(e) => setA(+e.currentTarget.value)} />
+        <input type="text" value={b} onChange={(e) => setB(+e.currentTarget.value)} />
+        <hr />
+        <div>
+            Result for a: {resultA}
+        </div>
+        <div>
+            Result for b: {resultB}
+        </div>
+    </>
+}
+
+
+export const HelpsForReactMemo = () => {
+    console.log('HelpsForReactMemo');
+
+    const [counter, setCounter] = useState(0)
+    const [users, setUsers] = useState(["Stas", "Agesilaus", "Mirudistok"])
+
+    const filterUsers = useMemo(() => users.filter(u=>u.toLowerCase().includes('u')), [users])
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        {counter}
+        <Users users={filterUsers} />
+    </>
+}

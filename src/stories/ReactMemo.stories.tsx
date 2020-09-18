@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react/types-6-0';
-import React, { useMemo, useState } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 
 export default {
     title: 'React.memo memo',
@@ -75,18 +75,51 @@ export const UseMemoExample = () => {
     </>
 }
 
-
 export const HelpsForReactMemo = () => {
     console.log('HelpsForReactMemo');
 
     const [counter, setCounter] = useState(0)
     const [users, setUsers] = useState(["Stas", "Agesilaus", "Mirudistok"])
 
-    const filterUsers = useMemo(() => users.filter(u=>u.toLowerCase().includes('u')), [users])
+    const filterUsers = useMemo(() => users.filter(u => u.toLowerCase().includes('u')), [users])
 
     return <>
         <button onClick={() => setCounter(counter + 1)}>+</button>
         {counter}
         <Users users={filterUsers} />
+    </>
+}
+
+
+type BooksType = {
+    books: Array<string>
+    addBook: () => void
+}
+const Books = React.memo((props: BooksType) => {
+    console.log("Books");
+
+    return (
+        <div>
+            <button onClick={props.addBook}>addBook</button>
+            {props.books.map((b, i) => (<div key={b + i}>{b}</div>))}
+        </div>)
+})
+export const LikeUseCallback = () => {
+    console.log('LikeUseCallback');
+
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(["Stas", "Agesilaus", "Mirudistok"])
+
+    const filterBooks = useMemo(() => books.filter(u => u.toLowerCase().includes('')), [books])
+
+    //При каждой перерисовки, функция создается по новой, вследствии этого меняется и ссылка, она становится новой
+    const addBook = useCallback(() => {
+        setBooks([...books, `Sveta`])
+    }, [books])
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        {counter}
+        <Books books={filterBooks} addBook={addBook} />
     </>
 }
